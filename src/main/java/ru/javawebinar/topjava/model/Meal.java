@@ -3,7 +3,7 @@ package ru.javawebinar.topjava.model;
 import java.time.LocalDateTime;
 
 public class Meal {
-    private int id;
+    private volatile Integer id;
 
     private LocalDateTime dateTime;
 
@@ -20,7 +20,7 @@ public class Meal {
         this.calories = calories;
     }
 
-    public Meal(int id, LocalDateTime dateTime, String description, int calories) {
+    public Meal(Integer id, LocalDateTime dateTime, String description, int calories) {
         this.id = id;
         this.dateTime = dateTime;
         this.description = description;
@@ -39,11 +39,11 @@ public class Meal {
         return calories;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

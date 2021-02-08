@@ -1,17 +1,25 @@
-<%@ page import="java.util.Arrays" %>
-<%@ page import="java.util.List" %>
-<%@ page import="ru.javawebinar.topjava.model.Meal" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <html>
 <head>
     <title>Meals</title>
+
+    <style>
+        .normal {
+            color: green;
+        }
+        .excess {
+            color: red;
+        }
+    </style>
+
 </head>
 <body>
-<p>ЕДА</p>
+<h2>Meals List</h2>
 <table border="1">
-    <thead>
+
         <tr>
             <th>id</th>
             <th>Date</th>
@@ -20,20 +28,30 @@
             <th>Update</th>
             <th>Delete</th>
         </tr>
-    </thead>
-    <tbody>
-        <c:forEach items="${requestScope.meals}" var="meal">
-            <tr
+
+
+        <%--@elvariable id="mealTo" type="ru.javawebinar.topjava.model.MealTo"--%>
+        <c:forEach items="${mealTo}" var="mealTo">
+
+            <tr class="${mealTo.excess ? "excess" : "normal"}">
+
+                <td>${mealTo.id}</td>
+                <td><fmt:parseDate value="${mealTo.dateTime}" pattern="yyyy-MM-dd'T'HH:mm" var="parseDate" type="both"/>
+                    <fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${parseDate}"/>
+                </td>
+                <td>${mealTo.description}</td>
+                <td>${mealTo.calories}</td>
+                <td><a href="meals?action = update&id=${mealTo.id}">Update</a></td>
+                <td><a href="meals?action = delete&id=${mealTo.id}">Delete</a></td>
+
+            </tr>
         </c:forEach>
-        <tr>
-            <td>1</td>
-            <td>12.02.2020</td>
-            <td>Description</td>
-            <td>500</td>
-            <td>upd</td>
-            <td>del</td>
-        </tr>
-    </tbody>
+
 </table>
+
+    </br>
+       <a href="create.jsp"> <input type="submit" value="Create"></a>
 </body>
 </html>
+
+

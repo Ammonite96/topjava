@@ -1,11 +1,17 @@
 package ru.javawebinar.topjava;
 
 import ru.javawebinar.topjava.model.Meal;
+import ru.javawebinar.topjava.model.MealTo;
 import ru.javawebinar.topjava.service.MealService;
 import ru.javawebinar.topjava.service.impl.MealServiceImp;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.Month;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * @see <a href="http://topjava.herokuapp.com">Demo application</a>
@@ -17,18 +23,8 @@ public class Main {
         System.out.println(" ");
 
         MealService mealService = new MealServiceImp();
+        List<Meal> mealList = mealService.getAllMeal();
 
-        mealService.getAllMeal().forEach(System.out::println);
-        System.out.println("");
-        System.out.println(mealService.getMeal(1).toString());
-        System.out.println("");
-        mealService.createMeal(new Meal(LocalDateTime.of(2021, Month.JANUARY,7,16,42), "diner", 1000));
-        mealService.getAllMeal().forEach(System.out::println);
-        mealService.updateMeal(15, new Meal(LocalDateTime.of(2021, Month.JANUARY, 7, 16,56), "обед", 200));
-        System.out.println("");
-        System.out.println(mealService.getMeal(15));
-        mealService.deleteMeal(15);
-        System.out.println("");
-        mealService.getAllMeal().forEach(System.out::println);
+        mealList.forEach(System.out::println);
     }
 }
