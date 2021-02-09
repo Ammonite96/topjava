@@ -26,5 +26,9 @@ public class Main {
         List<Meal> mealList = mealService.getAllMeal();
 
         mealList.forEach(System.out::println);
+
+        mealService.createMeal(new Meal(LocalDateTime.MAX, "description", 5000));
+        System.out.println("");
+        mealList.forEach(System.out::println);
     }
 }

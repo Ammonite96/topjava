@@ -26,7 +26,6 @@ public class MealsServlet extends HttpServlet {
     private static final Logger log = getLogger(MealsServlet.class);
     private MealService mealService = new MealServiceImp();
     private List<Meal> mealsList = mealService.getAllMeal();
-    private boolean excess;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -52,8 +51,4 @@ public class MealsServlet extends HttpServlet {
         doGet(req, resp);
     }
 
-    @Override
-    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-    }
 }
