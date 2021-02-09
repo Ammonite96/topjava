@@ -4,14 +4,11 @@ import ru.javawebinar.topjava.model.Meal;
 import ru.javawebinar.topjava.model.MealTo;
 import ru.javawebinar.topjava.service.MealService;
 import ru.javawebinar.topjava.service.impl.MealServiceImp;
+import ru.javawebinar.topjava.util.MealsUtil;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.Month;
-import java.time.format.DateTimeFormatter;
+import java.time.LocalTime;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 /**
  * @see <a href="http://topjava.herokuapp.com">Demo application</a>
@@ -23,12 +20,18 @@ public class Main {
         System.out.println(" ");
 
         MealService mealService = new MealServiceImp();
-        List<Meal> mealList = mealService.getAllMeal();
+        List<Meal> mealsList = mealService.getAllMeal();
+        List<MealTo> mealWithExcesses = MealsUtil.filteredByStreams(mealsList, LocalTime.MIN,LocalTime.MAX,2000);
 
-        mealList.forEach(System.out::println);
-
-        mealService.createMeal(new Meal(LocalDateTime.MAX, "description", 5000));
+        mealsList.forEach(System.out::println);
         System.out.println("");
-        mealList.forEach(System.out::println);
+        mealWithExcesses.forEach(System.out::println);
+
+        Meal meal = mealService.getMeal(1);
+        mealService.updateMeal(1, new Meal(LocalDateTime.MAX, "discription", 2000));
+
+        System.out.println("");
+        mealsList.forEach(System.out::println);
+
     }
 }

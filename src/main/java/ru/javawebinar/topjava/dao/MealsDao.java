@@ -3,9 +3,6 @@ package ru.javawebinar.topjava.dao;
 import ru.javawebinar.topjava.model.Meal;
 import ru.javawebinar.topjava.util.MealsUtil;
 
-import java.time.LocalDateTime;
-import java.time.Month;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -40,7 +37,7 @@ public class MealsDao {
         mealToUpdate.setCalories(meal.getCalories());
     }
 
-    public void deleteMeal(int id) {
-        mealList.removeIf(meal -> meal.getId() == id);
+    public void deleteMeal(Integer id) {
+        mealList.removeIf(meal -> meal.getId().equals(id));
     }
 }

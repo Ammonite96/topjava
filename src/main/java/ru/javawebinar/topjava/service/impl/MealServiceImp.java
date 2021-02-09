@@ -36,7 +36,7 @@ public class MealServiceImp implements MealService {
     }
 
     @Override
-    public void deleteMeal(int id) {
+    public void deleteMeal(Integer id) {
         mealsDao.deleteMeal(id);
     }
 }
