@@ -8,7 +8,6 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class MealsDao {
-
     private final AtomicInteger MEAL_COUNT = new AtomicInteger(0);
     private List<Meal> mealList = new CopyOnWriteArrayList<>();
 

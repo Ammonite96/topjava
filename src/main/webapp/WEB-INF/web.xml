@@ -38,6 +38,7 @@
         <servlet-name>deleteMealServlet</servlet-name>
         <servlet-class>ru.javawebinar.topjava.web.DeleteMealServlet</servlet-class>
     </servlet>
+
     <servlet-mapping>
         <servlet-name>deleteMealServlet</servlet-name>
         <url-pattern>/delete</url-pattern>

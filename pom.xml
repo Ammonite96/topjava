@@ -52,7 +52,6 @@
             <version>${logback.version}</version>
             <scope>runtime</scope>
         </dependency>
-
         <!--Web-->
         <dependency>
             <groupId>javax.servlet</groupId>

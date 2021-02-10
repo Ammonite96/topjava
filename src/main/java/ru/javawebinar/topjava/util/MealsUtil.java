@@ -43,7 +43,6 @@ public class MealsUtil {
 
     public static List<MealTo> filteredByCycles(List<Meal> meals, LocalTime startTime, LocalTime endTime, int caloriesPerDay) {
 
-        
         Map<LocalDate, Integer> caloriesByDay = new HashMap<>();
         for (Meal meal : meals) {
             LocalDateTime localDateTime = meal.getDateTime();

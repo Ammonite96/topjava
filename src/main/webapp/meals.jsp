@@ -56,8 +56,8 @@
     </br>
        <a href="create.jsp"> <input type="submit" value="Create new meal"></a>
 
-<hr>
-<a href="index.html">TopJava</a>
+    <hr>
+    <a href="index.html">TopJava</a>
 </body>
 </html>
 

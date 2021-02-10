@@ -14,7 +14,6 @@ public class MealServiceImp implements MealService {
         mealsDao = new MealsDao();
     }
 
-
     @Override
     public Meal getMeal(int id) {
         return mealsDao.getMeal(id);

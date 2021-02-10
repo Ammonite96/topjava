@@ -23,7 +23,6 @@ public class DeleteMealServlet extends HttpServlet {
         Integer id = Integer.valueOf(request.getParameter("id"));
         mealService.deleteMeal(id);
 
-        //doGet(request, response);
         response.sendRedirect(request.getContextPath() + "/meals");
     }
 

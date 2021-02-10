@@ -34,6 +34,7 @@ public class UpdateMealServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         log.debug("redirect to update");
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
