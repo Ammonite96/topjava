@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.Month;
 import java.util.*;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class MealsUtil {
@@ -59,7 +60,7 @@ public class MealsUtil {
 
             boolean excess = caloriesByDay.get(localDate) > caloriesPerDay;
 
-            if (TimeUtil.isBetweenHalfOpen(localTime, startTime, endTime)) {
+            if (DateTimeUtil.isBetweenHalfOpen(localTime, startTime, endTime)) {
                 userMealWithExcesses.add(new MealTo(localDateTime, meal.getDescription(), meal.getCalories(), excess));
             }
         }
