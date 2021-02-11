@@ -41,12 +41,7 @@
                     <td>${mealTo.description}</td>
                     <td>${mealTo.calories}</td>
                     <td><a href="update?id=${mealTo.id}">Update</a></td>
-                    <td>
-                        <form method="get" action="/topjava/delete" style="display:inline">
-                            <input type="hidden" name="id" value="${mealTo.id}">
-                            <input type="submit" value="Delete">
-                        </form>
-                    </td>
+                    <td><a href="meals?id=${mealTo.id}">Delete</a></td>
                 </tr>
             </c:forEach>
         </tbody>

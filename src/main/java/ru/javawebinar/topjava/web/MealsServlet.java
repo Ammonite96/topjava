@@ -26,11 +26,19 @@ public class MealsServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         log.debug("redirect to meals");
-        request.getParameter("id");
-        List<MealTo> mealWithExcesses = MealsUtil.filteredByStreams(mealsList, LocalTime.MIN, LocalTime.MAX, 2000);
+        String action = request.getParameter("action");
 
-        request.setAttribute("mealTo", mealWithExcesses);
-        request.getRequestDispatcher("/meals.jsp").forward(request, response);
+        if (action == null) {
+            List<MealTo> mealWithExcesses = MealsUtil.filteredByStreams(mealsList, LocalTime.MIN, LocalTime.MAX, 2000);
+            request.setAttribute("mealTo", mealWithExcesses);
+            request.getRequestDispatcher("/meals.jsp").forward(request, response);
+        } else if (action.equals("delete")) {
+            Integer id = Integer.valueOf(request.getParameter("id"));
+            mealService.deleteMeal(id);
+            response.sendRedirect("meals");
+        }
+
+
     }
 
     @Override
