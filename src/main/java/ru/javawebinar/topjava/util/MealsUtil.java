@@ -77,7 +77,7 @@ public class MealsUtil {
 
             boolean excess = caloriesByDay.get(localDate) > caloriesPerDay;
 
-            if (DateTimeUtil.isBetweenHalfOpen(localTime, startTime, endTime)) {
+            if (Util.isBetweenHalfOpen(localTime, startTime, endTime)) {
                 userMealWithExcesses.add(new MealTo(localDateTime, meal.getDescription(), meal.getCalories(), excess));
             }
         }
