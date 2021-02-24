@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
-import ru.javawebinar.topjava.repository.inmemory.InMemoryUserRepository;
+import ru.javawebinar.topjava.repository.jdbc.JdbcUserRepository;
 import ru.javawebinar.topjava.util.exception.NotFoundException;
 
 import static ru.javawebinar.topjava.UserTestData.NOT_FOUND;
@@ -21,11 +21,11 @@ public class InMemoryAdminRestControllerSpringTest {
     private AdminRestController controller;
 
     @Autowired
-    private InMemoryUserRepository repository;
+    private JdbcUserRepository repository;
 
     @Before
     public void setUp() {
-        repository.init();
+        //repository.init();
     }
 
     @Test
