@@ -12,6 +12,10 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class MealsUtil {
+
+    private MealsUtil() {
+    }
+
     public static void main(String[] args) {
         List<Meal> meals = Arrays.asList(
                 new Meal(LocalDateTime.of(2020, Month.JANUARY, 30, 10, 0), "Завтрак", 500),
@@ -58,7 +62,6 @@ public class MealsUtil {
 
     public static List<MealTo> filteredByCycles(List<Meal> meals, LocalTime startTime, LocalTime endTime, int caloriesPerDay) {
 
-        
         Map<LocalDate, Integer> caloriesByDay = new HashMap<>();
         for (Meal meal : meals) {
             LocalDateTime localDateTime = meal.getDateTime();
@@ -77,9 +80,9 @@ public class MealsUtil {
 
             boolean excess = caloriesByDay.get(localDate) > caloriesPerDay;
 
-            if (DateTimeUtil.isBetweenHalfOpen(localTime, startTime, endTime)) {
-                userMealWithExcesses.add(new MealTo(localDateTime, meal.getDescription(), meal.getCalories(), excess));
-            }
+//            if (DateTimeUtil.isBetweenHalfOpen(localTime, startTime, endTime)) {
+//                userMealWithExcesses.add(new MealTo(localDateTime, meal.getDescription(), meal.getCalories(), excess));
+//            }
         }
 
         return userMealWithExcesses;
