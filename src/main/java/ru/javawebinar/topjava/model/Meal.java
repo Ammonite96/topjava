@@ -8,10 +8,10 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 @Entity
-@Table(name = "meals", uniqueConstraints = {@UniqueConstraint(columnNames = {"user_id", "datetime"}, name = "meals_unique_user_datetime_idx")})
+@Table(name = "meals", uniqueConstraints = {@UniqueConstraint(columnNames = {"user_id", "date_time"}, name = "meals_unique_user_datetime_idx")})
 public class Meal extends AbstractBaseEntity {
 
-    @Column(name = "datetime", nullable = false, unique = true)
+    @Column(name = "date_time", nullable = false, unique = true)
     private LocalDateTime dateTime;
 
     @Column(name = "description", nullable = false)
