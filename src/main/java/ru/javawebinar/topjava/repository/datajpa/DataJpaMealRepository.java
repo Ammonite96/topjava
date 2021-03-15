@@ -1,17 +1,13 @@
 package ru.javawebinar.topjava.repository.datajpa;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 import ru.javawebinar.topjava.model.Meal;
-import ru.javawebinar.topjava.model.User;
 import ru.javawebinar.topjava.repository.MealRepository;
 
+import javax.transaction.Transactional;
 import java.time.LocalDateTime;
-import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
 
 @Repository
 public class DataJpaMealRepository implements MealRepository {
@@ -27,6 +23,7 @@ public class DataJpaMealRepository implements MealRepository {
     }
 
     @Override
+    @Transactional
     public Meal save(Meal meal, int userId) {
         if (!meal.isNew() && get(meal.getId(), userId) == null) {
             return null;
@@ -58,9 +55,10 @@ public class DataJpaMealRepository implements MealRepository {
 
     @Override
     public List<Meal> getAll(int userId) {
-        return crudMealRepository.findAll().stream()
-                .filter(meal -> meal.getUser().getId() == userId)
-                .map(Meal::getDateTime).sorted(Comparator.reverseOrder()).collect(Collectors.toList());
+//        return crudMealRepository.findAll().stream()
+//                .filter(meal -> meal.getUser().getId() == userId)
+//                .map(Meal::getDateTime).sorted(Comparator.reverseOrder()).collect(Collectors.toList());
+        return null;
     }
 
     @Override
