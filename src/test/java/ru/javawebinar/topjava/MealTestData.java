@@ -12,6 +12,7 @@ import static ru.javawebinar.topjava.model.AbstractBaseEntity.START_SEQ;
 
 public class MealTestData {
     public static final TestMatcher<Meal> MEAL_MATCHER = TestMatcher.usingIgnoringFieldsComparator(Meal.class, "user");
+    public static TestMatcher<MealTo> MEAL_TO_MATCHER = TestMatcher.usingEqualsComparator(MealTo.class);
 
 
     public static final int NOT_FOUND = 10;
